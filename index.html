@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play .m3u8 File in HTML5 video player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+  <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    max-height: 100vh;
+  }
+  
+  #video-wrapper {
+    padding: 0;
+    width: 100%;
+    max-width: 100vw; /* Ancho máximo proporcional al ancho de la pantalla */
+    margin: 0 auto; /* Centra el elemento horizontalmente */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+  }
+  
+  #video {
+    padding: 0;
+    max-width: 100%;
+
+    object-fit: cover;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  </style>
+    <div id="video-wrapper">
+        <!-- Create a video element -->
+        <video class="video" id="video" controls></video>
+    </div>
+
+    <!-- Use hls.js to create a player and load the .m3u8 file -->
+    <script>
+        var video = document.getElementById('video');
+        if(Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource('https://moon-200ge-streaming-server.dvsdvsdvsdva.com/hls2/01/03067/v4bsncvnewn7_x/index-v1-a1.m3u8?t=irv6b02PsenPYVBxpmhWtXaaKSeY8k4n9Sa2bTSzLp8&s=1678560792&e=43200&f=15337581&srv=moon-storage-delivery-s82.dvsdvsdvsdva.com&asn=52468&sp=3000');
+            hls.attachMedia(video);
+            video.play();
+        }
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = 'https://moon-200ge-streaming-server.dvsdvsdvsdva.com/hls2/01/03067/v4bsncvnewn7_x/index-v1-a1.m3u8?t=irv6b02PsenPYVBxpmhWtXaaKSeY8k4n9Sa2bTSzLp8&s=1678560792&e=43200&f=15337581&srv=moon-storage-delivery-s82.dvsdvsdvsdva.com&asn=52468&sp=3000';
+            video.addEventListener('loadedmetadata',function() {
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
