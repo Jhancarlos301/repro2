@@ -55,14 +55,14 @@
         var video = document.getElementById('video');
         if(Hls.isSupported()) {
             var hls = new Hls();
-            hls.loadSource('https://moon-200ge-streaming-server.dvsdvsdvsdva.com/hls2/01/03067/v4bsncvnewn7_x/index-v1-a1.m3u8?t=irv6b02PsenPYVBxpmhWtXaaKSeY8k4n9Sa2bTSzLp8&s=1678560792&e=43200&f=15337581&srv=moon-storage-delivery-s82.dvsdvsdvsdva.com&asn=52468&sp=3000');
+            hls.loadSource('https://b-g-eu-7.feetcdn.com:2223/v3-hls-playback/20001cf381110c44c45c139c1d4a8d4fa63f83c7400f947df580bfa424cc934a4a952e861fbc8a3fd76a8ad6e632eda0850f9783147308ed8a06724ff6f18fb9b95951f883f3918c62f6ac3908ce613eb335539a2d7cf91d434c99f9cf18a3116bc751a4423b1699c51a6cd60a4745e78ab8f86356545fcc051f0d959523ea23f3bc2f492400f182588d77aec1d1243676f0b3adb1562d4bb7b7770329e5ce62579718f0535164ffd0e355566bf7a611/1080/index.m3u8');
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, function() {
                 video.play();
             });
         }
         else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = 'https://moon-200ge-streaming-server.dvsdvsdvsdva.com/hls2/01/03067/v4bsncvnewn7_x/index-v1-a1.m3u8?t=irv6b02PsenPYVBxpmhWtXaaKSeY8k4n9Sa2bTSzLp8&s=1678560792&e=43200&f=15337581&srv=moon-storage-delivery-s82.dvsdvsdvsdva.com&asn=52468&sp=3000';
+            video.src = 'https://b-g-eu-7.feetcdn.com:2223/v3-hls-playback/20001cf381110c44c45c139c1d4a8d4fa63f83c7400f947df580bfa424cc934a4a952e861fbc8a3fd76a8ad6e632eda0850f9783147308ed8a06724ff6f18fb9b95951f883f3918c62f6ac3908ce613eb335539a2d7cf91d434c99f9cf18a3116bc751a4423b1699c51a6cd60a4745e78ab8f86356545fcc051f0d959523ea23f3bc2f492400f182588d77aec1d1243676f0b3adb1562d4bb7b7770329e5ce62579718f0535164ffd0e355566bf7a611/1080/index.m3u8';
             video.addEventListener('loadedmetadata',function() {
                 video.play();
             });
